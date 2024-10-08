@@ -11,26 +11,26 @@
 ;; Package-Version: 20200129.0141
 ;; Keywords: hypermedia
 ;; Url: https://github.com/seanohalpin/org-link-minor-mode
-;; 
+;;
 ;; Changes for org v9: Stefan-W. Hahn <stefan dot hahn at s-hahn dot de>
 ;;
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 3, or (at your option)
 ;; any later version.
-;; 
+;;
 ;; This file is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;
 ;;; Commentary:
 ;;
 ;; Enables org-mode links of the form:
-;; 
+;;
 ;;   http://www.bbc.co.uk
 ;;   man:emacs
 ;;   info:emacs
@@ -39,7 +39,7 @@
 ;;   [[org-link-minor-mode]]
 ;;   [2012-08-18]
 ;;   <2012-08-18>
-;; 
+;;
 ;; Note that `org-toggle-link-display' will also work when this mode
 ;; is enabled.
 ;;
@@ -111,6 +111,8 @@
             (progn
               (message "org-mode doesn't need org-link-minor-mode")
               (org-link-minor-mode -1))
+          (org-fold-initialize (or (and (stringp org-ellipsis) (not (equal "" org-ellipsis)) org-ellipsis)
+                                   "..."))
           (font-lock-add-keywords nil org-link-minor-mode-keywords t)
           (kill-local-variable 'org-mouse-map)
           (setq-local org-mouse-map
